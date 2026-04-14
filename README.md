@@ -1,5 +1,3 @@
-# Sketchora-Studio
-Sketchora Studio is a curated digital art portfolio showcasing original works that explore emotion, memory, and visual storytelling through minimalist design.
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,57 +5,76 @@ Sketchora Studio is a curated digital art portfolio showcasing original works th
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sketchora Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-html {
-    scroll-behavior: smooth;
+:root {
+    --bg: #f5efe6;
+    --text: #2e2a27;
+    --muted: #7b746d;
+    --accent: #9b6b43;
+    --card: #ffffff;
+    --border: #e7dccf;
 }
 
 body {
     margin: 0;
-    background: #f3efe9;
-    color: #2b2b2b;
     font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
 }
 
 /* NAV */
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 30px 60px;
+    padding: 25px 60px;
 }
 
 nav a {
     text-decoration: none;
-    color: #2b2b2b;
+    color: var(--text);
     margin-left: 30px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    color: var(--accent);
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 150px 20px;
+    padding: 150px 20px 100px;
 }
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 70px;
+    font-size: 80px;
+    margin: 0;
     font-weight: 400;
 }
 
 .hero p {
-    color: #777;
+    color: var(--muted);
     font-size: 18px;
+    margin-top: 15px;
 }
 
-.button {
+.btn {
     display: inline-block;
     margin-top: 30px;
     padding: 12px 28px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     text-decoration: none;
-    color: #333;
+    color: var(--text);
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--accent);
+    color: white;
 }
 
 /* SECTIONS */
@@ -66,32 +83,45 @@ section {
 }
 
 h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
     text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 400;
+    margin-bottom: 50px;
 }
 
 /* GALLERY */
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-top: 50px;
+    gap: 30px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
 }
 
 .card img {
     width: 100%;
-    height: 350px;
+    aspect-ratio: 1/1;
     object-fit: cover;
 }
 
 .card h3 {
     font-family: 'Playfair Display', serif;
-    margin-top: 10px;
+    margin: 12px 15px 5px;
 }
 
 .card p {
-    color: #777;
+    margin: 0 15px 15px;
+    color: var(--muted);
 }
 
 /* ABOUT */
@@ -100,7 +130,7 @@ h2 {
     margin: auto;
     text-align: center;
     line-height: 1.8;
-    color: #555;
+    color: var(--muted);
 }
 
 /* CONTACT */
@@ -111,8 +141,12 @@ h2 {
 .contact a {
     display: block;
     margin-top: 10px;
-    color: #333;
+    color: var(--text);
     text-decoration: none;
+}
+
+.contact a:hover {
+    color: var(--accent);
 }
 
 /* FOOTER */
@@ -120,8 +154,25 @@ footer {
     display: flex;
     justify-content: space-between;
     padding: 40px 60px;
-    color: #777;
-    font-size: 14px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 </style>
 
@@ -140,14 +191,15 @@ footer {
 
 <section id="home" class="hero">
     <h1>Sketchora Studio</h1>
-    <p>Art that feels like a memory</p>
-    <a href="#collection" class="button">VIEW COLLECTION</a>
+    <p>Soft art. Quiet stories. Earthy memories.</p>
+    <a class="btn" href="#collection">View Collection</a>
 </section>
 
 <section id="collection">
-    <h2>Original Works</h2>
+    <h2>Selected Works</h2>
 
     <div class="gallery">
+
         <div class="card">
             <img src="art1.jpg">
             <h3>Emerald Whispers</h3>
@@ -165,28 +217,28 @@ footer {
             <h3>Freckled Dawn</h3>
             <p>₹18,500</p>
         </div>
+
     </div>
 </section>
 
 <section id="about">
-    <h2>The Studio</h2>
+    <h2>About</h2>
     <div class="about">
-        <p>Sketchora Studio is a quiet space where art begins with feeling.</p>
-        <p>Every piece is built from emotion, light, and memory.</p>
+        Sketchora Studio creates calm, earthy visuals inspired by light, texture, and emotion.
     </div>
 </section>
 
 <section id="contact">
-    <h2>Let's Connect</h2>
-    <p>Interested in a piece? Reach out.</p>
-
-    <a href="#">Instagram: @sketchora.studio</a>
-    <a href="mailto:2012aadyaagarwal@gmail.com">Email</a>
+    <h2>Contact</h2>
+    <div class="contact">
+        <a href="#">Instagram: @sketchora.studio</a>
+        <a href="mailto:2012aadyaagarwal@gmail.com">Email Us</a>
+    </div>
 </section>
 
 <footer>
     <div>Sketchora Studio</div>
-    <div>© 2026 All rights reserved</div>
+    <div>© 2026</div>
 </footer>
 
 </body>
